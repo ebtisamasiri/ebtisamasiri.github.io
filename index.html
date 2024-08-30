@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Sticky Navigation Bar */
+        .navbar {
+            background-color: #000;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 15px 20px;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #ffc107;
+        }
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            padding-left: 20px;
+        }
+        body {
+            padding-top: 60px; /* Adjust this based on your navbar height */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom CSS for the About section */
+        .about-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .about-section img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Custom CSS for the Projects section */
+        .projects-section {
+            padding: 50px 0;
+        }
+        .card {
+            border: none;
+        }
+        .card img {
+            border-radius: 10px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .card-text {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .card-links a {
+            color: #000;
+            text-decoration: underline;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Custom CSS for the Skills section */
+        .skills-section img {
+            height: 100px;
+        }
+
+        /* Custom CSS for the Contact section */
+        .contact-section .text-white img {
+            width: 24px;
+            height: 24px;
+        }
+        .contact-section .row img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#home">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section (optional if you want a section at the top) -->
+    <section id="home">
+        <!-- Content for Home section (if needed) -->
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="mb-4">About</h2>
+            <img src="images/about/1.jpg" alt="Your Picture" class="img-fluid">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet dolor dolor. Suspendisse ligula elit, hendrerit ut bibendum quis, facilisis vitae est. Vivamus vitae felis sit amet sem rhoncus euismod. Praesent sem dolor, ullamcorper nec tempor quis, pulvinar sed dolor. Quisque pretium felis ac nisi posuere, id commodo lorem porttitor.</p>
+            <p>Duis convallis ligula sed pretium tristique. Duis nunc risus, lacinia eget cursus id, suscipit ac metus. Sed varius sed tortor congue aliquam. In in dapibus diam, in auctor purus. Praesent vitae tristique diam. Donec tincidunt hendrerit tortor, vitae lobortis purus rutrum sit amet. Nunc non arcu vitae leo rhoncus tincidunt vel sed urna.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Projects</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Project 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu. Maecenas lacinia scelerisque arcu a eleifend. Suspendisse imperdiet arcu ex, vel feugiat enim lacinia tincidunt.</p>
+                            <div class="card-links">
+                                <a href="#">Blog Post</a> |
+                                <a href="#">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Project 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu. Maecenas lacinia scelerisque arcu a eleifend. Suspendisse imperdiet arcu ex, vel feugiat enim lacinia tincidunt.</p>
+                            <div class="card-links">
+                                <a href="#">Blog Post</a> |
+                                <a href="#">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Project 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu. Maecenas lacinia scelerisque arcu a eleifend. Suspendisse imperdiet arcu ex, vel feugiat enim lacinia tincidunt.</p>
+                            <div class="card-links">
+                                <a href="#">Blog Post</a> |
+                                <a href="#">Source Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Skills</h2>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <img src="images/skills/1.png" alt="Python" class="img-fluid mb-3">
+                    <h5>Python</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
+                    <a href="#" class="text-primary">Link to course or bootcamp</a>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/skills/2.png" alt="Data Visualization" class="img-fluid mb-3">
+                    <h5>Data Visualization</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
+                    <a href="#" class="text-primary">Link to course or bootcamp</a>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/skills/3.png" alt="SQL" class="img-fluid mb-3">
+                    <h5>SQL</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
+                    <a href="#" class="text-primary">Link to course or bootcamp</a>
+                </div>
+                <div class="col-md-3">
+                    <img src="images/skills/4.png" alt="Data Storytelling" class="img-fluid mb-3">
+                    <h5>Data Storytelling</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
+                    <a href="#" class="text-primary">Link to course or bootcamp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section id="contact" class="contact-section py-5" style="background-color: #000;">
+        <div class="container text-center text-white">
+            <h2 class="mb-4">Contact Me</h2>
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <img src="icons/email.png" alt="Email Icon" class="mr-2">
+                    <span>lorenipsum@gmail.com</span>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                    <img src="icons/phone.png" alt="Phone Icon" class="mr-2">
+                    <span>415xxxxxxx</span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-2">
+                    <a href="#" class="text-white">
+                        <img src="icons/linkedin.png" alt="LinkedIn" class="img-fluid mb-2">
+                        <div>LinkedIn</div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="text-white">
+                        <img src="icons/twitter.png" alt="Twitter" class="img-fluid mb-2">
+                        <div>Twitter</div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="text-white">
+                        <img src="icons/github.png" alt="GitHub" class="img-fluid mb-2">
+                        <div>GitHub</div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="text-white">
+                        <img src="icons/medium.png" alt="Medium" class="img-fluid mb-2">
+                        <div>Medium</div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="text-white">
+                        <img src="icons/youtube.png" alt="YouTube" class="img-fluid mb-2">
+                        <div>YouTube</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
