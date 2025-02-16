@@ -2,277 +2,894 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebtsam Asiri's Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ebtsam Moshef's Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
     <style>
-        /* Sticky Navigation Bar */
-        .navbar {
-            background-color: #1e3150;
-            padding: 10px 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s;
+        html {
+            scroll-behavior: smooth; /* Enables smooth scrolling */
         }
-        .navbar-dark .navbar-nav .nav-link {
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
             color: #fff;
-            font-size: 16px;
-            font-weight: 500;
-            padding: 15px 20px;
         }
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: #ffc107;
+
+        /* Navbar */
+        .navbar {
+            background: #2e1b47;
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .navbar-brand {
-            color: #fff;
+            font-size: 1.6rem;
             font-weight: bold;
-            font-size: 20px;
-            padding-left: 20px;
+            color: #ccc !important;;
         }
-        body {
-            padding-top: 60px; /* Adjust this based on your navbar height */
-            background-color: #fff;
+        .nav-link {
+            color: #ccc !important;
+            margin: 0 10px;
+            font-size: 1rem;
         }
-        html {
-            scroll-behavior: smooth;
+        .navbar-nav {
+            margin-left: auto; /* Pushes the menu items to the right */
         }
 
-        /* Custom CSS for the About section */
-        .about-section {
+        .nav-link:hover {
+            color: #d6782f !important;
+        }
+       
+        /* Default navbar link styles */
+        .nav-link {
+            position: relative;
+            color: #ccc !important;
+            margin: 0 10px;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Glowing effect ONLY for "Projects" */
+        .nav-item:nth-child(3) .nav-link {
+            text-shadow: 2px 6px 7px rgba(255, 2, 213, 0.953); /* Pink glow */
+            font-weight: bold; /* Make it stand out */
+        }
+
+
+        /* Hero Section */
+        .hero-container {
+            background: #1a1a1a;
             text-align: center;
-            padding: 50px 0;
-        }
-        .about-section img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-        .about-section p {
-            font-size: 16px;
-            line-height: 1.6;
+            padding: 70px 5%;
+            opacity: 0;
+            animation: fadeIn 1.3s ease-in-out forwards;
         }
 
-        /* Custom CSS for the Projects section */
-        .projects-section {
-            padding: 50px 0;
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Slight upward movement */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .card {
-            border: none;
-            background-color: rgb(229, 249, 255);
+
+        /* Apply animation to all sections */
+        .fade-in {
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 1s ease-in-out forwards;
         }
-        .card img {
-            border-radius: 10px;
-        }
-        .card-title {
-            font-size: 1.25rem;
+
+        /* Delay different sections for a smooth staggered effect */
+        .fade-in:nth-child(1) { animation-delay: 0.2s; }
+        .fade-in:nth-child(2) { animation-delay: 0.4s; }
+        .fade-in:nth-child(3) { animation-delay: 0.6s; }
+        .fade-in:nth-child(4) { animation-delay: 0.8s; }
+        .fade-in:nth-child(5) { animation-delay: 1s; }
+
+        .hero-title {
+            font-size: 2.5rem;
             font-weight: bold;
-            margin-top: 15px;
+            color: #d6782f
         }
-        .card-text {
-            font-size: 14px;
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #ccc ;
+        }
+
+        /* About Me Section */
+        
+        .about-container {
+            padding: 10px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .about-left {
+            flex: 1;
+            text-align: left;
+            max-width: 400px;
+            color: #ccc ;    
+        }
+        .about-left h3 {
+            font-size: 1.2rem;  /* Match hero title */
+            font-weight: bold;  /* Ensure boldness */
+            color: #d6782f;  /* Match the color */
+        }
+
+        .profile-pic {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0px 4px 10px rgba(243, 25, 221, 0.4); /* Pink glow effect */
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 16px rgba(243, 25, 221, 0.6); /* Stronger pink shadow on hover */
+        }
+
+
+        .about-right {
+            flex: 1;
+            background: #3e2a67; /* Keep the purple background */
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column; /* Stack boxes vertically */
+            gap: 20px; /* Add space between boxes */
+            align-items: center; /* Keep boxes centered */
+            width: 100%;
+            max-width: 800px; /* Adjust as needed */
+            margin: 0 auto;
+            color: #ccc ;
+        }
+        .about-box h4 {
+            font-size: 1.5rem;  /* Make it slightly smaller */
+            font-weight: 800;   /* Bolder than normal */
+            color: #ccc;     /* Keep the same color */
+        }
+
+        .about-box {
+            color: #ccc ;
+            width: 100%; /* Make both boxes take full width */
+            min-height: 100px; /* Ensure a minimum height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            background: #3d1b56; /* Keep the dark purple for internal boxes */
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        /* Ensure both boxes have equal height dynamically */
+        .about-box:nth-child(1),
+        .about-box:nth-child(2) {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-box:hover {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .custom-line {
+            border: none;  /* Remove default hr styling */
+            border-top: 1px solid #ccc;  /* Thin light gray line */
+            width: 60%;  /* Adjust width (small size) */
+            margin: 15px 0;  /* Add space above and below */
+        }
+        .education-list {
+            list-style: none; /* Remove bullet points */
+            padding-left: 0; /* Remove left padding */
+            font-size: 1rem; /* Adjust text size */
+            color: #ccc; /* Light gray text */
+        }
+
+        .education-list li {
+            margin-bottom: 5px; /* Space between items */
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .skill-box {
+            background: #bfa0ff; /* Light purple */
+            color: #2e1b47; /* Dark text for contrast */
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 20px;
+            text-align: center;
+            display: inline-block;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .skill-box:hover {
+            transform: scale(1.04);
+            box-shadow: 0px 4px 10px rgba(243, 25, 221, 0.4);
+        }
+        .certifications-list {
+            list-style-type: disc; /* Use bullet points */
+            padding-left: 20px; /* Indent the list for alignment */
+            text-align: left; /* Align text to the left */
+            color: #ccc ;
+        }
+
+        .certifications-list li {
+            margin-bottom: 8px; /* Add space between items */
+            font-size: 1rem; /* Adjust text size */
+        }
+
+        .certifications-list a {
+            color: #bfa0ff; /* Light purple for links */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .certifications-list a:hover {
+            text-decoration: underline;
+            color: #d1b3ff; /* Slightly lighter purple on hover */
+        }
+
+        /* What I Can Offer Section */
+        .offer-container {
+            color: #ccc ;
+            padding: 60px 10%;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2.1rem;
+            font-weight: bold;
+            color: #ccc
+        }
+        .offer-box {
+            color: #ccc ;
+            background: #3e2a67; /* Initial background */
+            border-radius: 10px;
+            padding: 30px;
+            margin: 15px;
+            display: inline-block;
+            width: 300px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .offer-box h4 {
+            font-size: 1.2rem;  /* Match hero title */
+            font-weight: bold;  /* Ensure boldness */
+            color: #df823b;  /* Match the color */
+        }
+        .offer-box:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            background: #573b8f; /* Change background color */
+            box-shadow: 0px 4px 8px rgba(243, 25, 221, 0.4); /* Glowing shadow effect */
+        }
+        .bold-text {
+            font-weight: bold;
+            color: #ccc; /* Optional: Change the color if needed */
+        }
+
+
+
+        
+
+        /* Projects Section */
+        .projects-container {
+            color: #f1f1f1 ;
+            padding: 50px 10%;
+            margin-top: 50px;
+        }
+
+        .project-box {
+            color: #f1f1f1 ;
+            background: #36205f; /* Darker shade */
+            border-radius: 10px;
+            text-align: center;
+            padding: 30px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            margin-bottom: 30px; /* Space between rows */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .project-box:hover {
+            transform: scale(1.05);
+            background: #452b7a;
+            box-shadow: 0px 4px 8px rgba(243, 25, 221, 0.4);
+        }
+
+        /* Image adjustments */
+        .project-img {
+            width: 100%;
+            height: 220px; /* Increased height */
+            object-fit: cover;
+            border-radius: 10px;
             margin-bottom: 15px;
         }
-        .card-links a {
-            color: #000;
-            text-decoration: underline;
+
+        /* Small skill boxes */
+        .project-skill {
+            background: #bfa0ff;
+            color: #2e1b47;
+            padding: 5px 12px;
+            font-size: 0.85rem;
             font-weight: bold;
-            margin-right: 10px;
+            border-radius: 15px;
+            text-align: center;
+            display: inline-block;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            margin: 5px;
+        }
+        .project-box h4 {
+            color: #e6e5e5; /* Lighter shade for the title */
+            font-size: 1.2rem; /* Slightly larger for emphasis */
+            font-weight: bold; /* Make it stand out */
+        }
+
+        .project-box p {
+            color: #e6e5e5; /* Light gray font for readability */
+            font-size: 1rem; /* Adjust the font size */
+            line-height: 1.5; /* Improve readability */
+        }
+
+        .project-skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 8px rgba(191, 160, 255, 0.6);
+        }
+
+        /* Separator line */
+        .project-line {
+            border: none;
+            border-top: 1px solid #ccc;
+            width: 80%;
+            margin: 15px auto;
+        }
+
+
+        /* Small boxes for project links */
+        .project-skill {
+            background: #bfa0ff;
+            color: #2e1b47;
+            padding: 5px 12px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 15px;
+            text-align: center;
+            display: inline-block;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            margin: 5px;
+        }
+
+        .project-skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 8px rgba(203, 11, 75, 0.4);
+        }
+
+        /* Small separator line */
+        .project-line {
+            border: none;
+            border-top: 1px solid #ccc;
+            width: 80%;
+            margin: 15px auto;
+        }
+
+        section {
+            scroll-margin-top: 80px; /* Adjust based on navbar height */
+        }
+
+
+        /* Contact Section */
+        .contact-container {
+            text-align: center;
+            padding: 60px 10%;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centers text and icon horizontally */
+            gap: 8px;
+            background: #cb5f0c; /* Match your theme */
+            color: #ccc;
+            text-decoration: none;
+            padding: 12px 20px; /* Adjust padding for better spacing */
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem; /* Ensure text size consistency */
+            transition: background 0.3s ease, transform 0.2s ease;
+            min-width: 160px; /* Ensures buttons have a consistent width */
+            text-align: center; /* Ensures text is aligned */
+        }
+
+        .contact-btn i {
+            font-size: 1.2rem;
+            vertical-align: middle; /* Ensures icons align properly */
+        }
+
+        .contact-btn:hover {
+            background: #b05315;
+            transform: scale(1.05);
+        }
+
+
+        /* Contact Form */
+        .contact-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #2e1b47;
+            color: #fff;
+        }
+
+        .contact-form textarea {
+            resize: none;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #bbb;
+        }
+
+        .contact-form button {
+            width: 80%;
+            max-width: 500px;
             cursor: pointer;
         }
 
-        /* Custom CSS for the Skills section */
-        .skills-section img {
-            height: 100px;
+        .contact-container h3 {
+            margin-top: 40px; /* Add spacing above "Send Me a Message" */
+            font-size: 1.8rem; /* Slightly larger title */
+            font-weight: bold; 
         }
 
-        /* Custom CSS for the Contact section */
-        .contact-section .text-white img {
-            width: 24px;
-            height: 24px;
+
+        /* Footer */
+        .footer {
+            background: #2e1b47;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            width: 100%; /* Ensures it spans the full width */
+            position: relative; /* Keeps it in flow of content */
+            bottom: 0;
+            color: #ccc; 
         }
-        .contact-section .row img {
-            width: 50px;
-            height: 50px;
-        }
+
+
     </style>
 </head>
 <body>
-    <!-- Sticky Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#home">Ebtsam Asiri</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Areas of Expertise</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-            </ul>
+
+<!-- Navbar -->
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg fade-in">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ebtsam Moshef Asiri</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#offer">What I Can Offer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">My Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Home Section (optional if you want a section at the top) -->
-    <section id="home">
-        <!-- Content for Home section (if needed) -->
+    <!-- Hero Section -->
+    <section class="hero-container fade-in">
+        <h1 class="hero-title">Welcome to my portfolio 🚀</h1>
+        <p class="hero-subtitle">Get to know me, explore my work, skills, and experience.</p>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="mb-4">About</h2>
-            <img src="images/about/1.jpg" alt="Your Picture" class="img-fluid">
-            <p>I am a Data Analyst and aspiring Data Scientist with a strong background in computer science and hands-on experience in leveraging data to solve complex problems. With expertise in machine learning, AI, and data analysis, I specialize in turning raw data into actionable insights that drive decision-making.</p>
-            <p>Proficient in Python, SQL, and data visualization tools, I excel at building predictive models, performing data wrangling, and developing advanced machine learning solutions. I am passionate about using data to optimize processes and uncover trends, whether through predictive analytics, deep learning, or natural language processing.</p>
-            <p>I thrive in collaborative environments and am always eager to contribute to innovative, data-driven solutions that create tangible business value.</p>
+    <!-- About Me Section -->
+    <section id="about" class="about-container fade-in">
+        <div class="about-left">
+            <img src="images/about/2.png" alt="Your Profile Picture" class="profile-pic"> <!-- Replace with your image -->
+            <h3>About Me 👩🏻‍💻</h3>
+            <p>
+                I am an aspiring Business Analyst with experience in data analysis, 
+                data science, UI/UX, and academic tutoring. Having led multiple projects, I excel at problem-solving, 
+                communication, and bridging technology with business needs. 
+                With a strong foundation in computer science, analytics, and business strategy, 
+                I’m passionate about turning data into meaningful insights that drive decisions.
+            </p>
+        
+            <hr class="custom-line"> <!-- Thin separator line -->
+        
+            <h3>Education 🎓</h3>
+            <ul class="education-list">
+                <li>Bachelor’s in Computer Science | KKU</li>
+                <li>T5 Data Science & AI Bootcamp | SDAIA</li>
+        </ul>
+        <hr class="custom-line"> <!-- Thin separator line -->
+        
+        <h3>Interests ✨ </h3>
+        <p> Reading 📚 | Film Analysis & Critique 🎬 | Sketching 🎨 | Mindfulness & Meditation 🧘🏻 | Gardening 🌱
+        </p>
         </div>
+        
+        
+        <div class="about-right fade-in">
+
+            <div class="about-box">
+                <h4><i class="fas fa-tools"></i> Tools & Skills</h4>
+                <div class="skills-container">
+                    <span class="skill-box">Python</span>
+                    <span class="skill-box">Excel</span>
+                    <span class="skill-box">SQL</span>
+                    <span class="skill-box">Business Analysis</span>
+                    <span class="skill-box">Data Analysis</span>
+
+                    <span class="skill-box">Power BI</span>
+                    <span class="skill-box">Tableau</span>
+                    <span class="skill-box">Google Analytics</span>
+                    <span class="skill-box">EDA</span>
+
+                    <span class="skill-box">Functional Requirements Document (FRD)</span>
+                    <span class="skill-box">Business Requirements Document (BRD)</span>
+                    <span class="skill-box">Scrum & Agile</span>
+                    <span class="skill-box">SDLC</span>
+                    <span class="skill-box">Lucidchart</span>
+                    <span class="skill-box">Business Process Model and Notation (BPMN)</span>
+
+                    <span class="skill-box">JIRA</span>
+
+                    <span class="skill-box">ML</span>
+                    <span class="skill-box">Computer Vision</span>
+                    <span class="skill-box">LLMs</span>
+                    <span class="skill-box">NLP</span>
+                    <span class="skill-box">YOLO</span>
+                    <span class="skill-box">Front-end Web Development</span>
+                    <span class="skill-box">HTML/CSS</span>
+                    <span class="skill-box">UI/UX</span>
+                    <span class="skill-box">Figma</span>
+                    <span class="skill-box">Public Speaking</span>
+                    <span class="skill-box">Academic Tutoring</span>
+
+                    <span class="skill-box">Mentoring</span>
+
+
+                </div>
+            </div>
+            <div class="about-box">
+                <h4><i class="fas fa-certificate"></i> Certifications 🎖️</h4>
+                <ul class="certifications-list">
+                    <li>IBM Business Analyst | <a href="https://www.coursera.org/account/accomplishments/specialization/XKD7YC0KTJZB" target="_blank">View</a></li>
+                    <li>IBM Exploratory Data Analysis | <a href="https://www.coursera.org/account/accomplishments/records/OJCEPU1XPQQ6" target="_blank">View</a></li>
+                    <li>Project and Stakeholder Management | <a href="https://www.coursera.org/account/accomplishments/records/IKCIMDQXKREL" target="_blank">View</a></li>
+                    <li>Process Modeling & Requirements Gathering | <a href="https://www.coursera.org/account/accomplishments/records/HQ88TUZ15WOV" target="_blank">View</a></li>
+                    <li>IBM Excel Basics for Data Analysis | <a href="https://www.coursera.org/account/accomplishments/records/87E378IBC5AX" target="_blank">View</a></li>
+                    <li>IBM Data Visualization and Dashboards with Excel and Cognos | <a href="https://www.coursera.org/account/accomplishments/records/O7UQHBFP6E43" target="_blank">View</a></li>
+                    <li>Google UX Design Specialization | <a href="https://www.coursera.org/account/accomplishments/specialization/TLWFSDD9V3TZ" target="_blank">View</a></li>
+                    <li>Mathematics for Machine Learning and Data Science | <a href="https://www.coursera.org/account/accomplishments/specialization/ETHFU1W47LXA" target="_blank">View</a></li>
+                </ul>
+            </div>
+        
+        </div>
+        
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2 class="text-center mb-5">Projects</h2>
-            <div class="row">
+
+
+    <!-- What I Can Offer Section -->
+    <section id="offer" class="offer-container fade-in">
+        <h2>What I Can Offer 🚀</h2>
+        <div class="offer-box">
+            <h4>Business Analysis 💼</h4>
+            <p>Requirements gathering and documentation,
+                gap analysis, BPMN, 
+                digital transformation,
+                market & competitor research, stakeholder management, UAT.</p>
+        </div>
+        <div class="offer-box">
+            <h4>Data Analytics 📊</h4>
+            <p>Data visualization & storytelling,
+                KPI tracking & reporting,
+                Business intelligence (Tableau, Power BI),
+                Insights generation & trend analysis.</p>
+        </div>
+        <div class="offer-box">
+            <h4>Data Science & ML 🧠</h4>
+            <p>Predictive modeling & forecasting,
+                data preprocessing & feature engineering,
+                statistical analysis & A/B testing,
+                AI-driven solutions.</p>
+        </div>
+        <div class="offer-box">
+            <h4>UX/UI Design 🎨</h4>
+            <p>User research & behavior analysis,
+                usability testing & feedback analysis,
+                wireframing & prototyping,
+                customer journey mapping,
+                data-driven UX insights.
+                
+            </p>
+        </div>
+        <div class="offer-box">
+            <h4>Teaching & Mentoring 👩🏻‍🏫</h4>
+            <p>Programming fundamentals & data concepts,
+                one-on-one mentoring & academic support,
+                guiding students in projects, research, creating educational content.
+                
+            </p>
+        </div>
+        <section id="projects" class="projects-container fade-in">
+            <h2 class="text-center mb-4">My Projects 💡</h2>
+            <div class="row g-4"> <!-- Adds spacing -->
                 <!-- Project 1 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">British Airways Reviews Visualization</h5>
-                            <p class="card-text">This project visualizes British Airways customer reviews using Tableau, highlighting average ratings for overall experience, staff service, entertainment, food, and seat comfort. It also compares metrics by month, country and aircraft for deeper insights.</p>
-                            <!-- Skills Section for Project 1 -->
-                            <p class="card-text"><strong>Skills:</strong> Tableau 📊, dashboard design, customer feedback analysis, comparative metrics analysis.</p>
-                            <div class="card-links">
-                                <a href="https://public.tableau.com/views/Book1_17270925274640/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">Blog Post</a>|
-                                <a href="https://github.com/ebtisamasiri/tableau-british-airways-project">Source Code</a>
+                <div class="col-md-6">
+                    <a href="https://public.tableau.com/app/profile/ebtsam.asiri/viz/BritishAirwaysReviews_17396927748700/BritishAirwaysReviews" target="_blank" rel="noopener noreferrer"" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/1.jpg" alt="Project 1" class="project-img">
+                            <h4>British Airways Reviews Analysis ✈️</h4>
+                            <p>Developed an interactive Tableau dashboard to analyze customer reviews, 
+                                track average ratings for key services, and compare insights by month, 
+                                country, and aircraft to identify trends and improve customer experience.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">Tableau</span>
+                                <span class="project-skill">Data Analysis</span>
+                                <span class="project-skill">Data Visualization</span>
+                                <span class="project-skill">KPI Tracking</span>
+
+                                <span class="project-skill">Customer Experience Insights</span>
+                                <span class="project-skill">Dashboard Design</span>
+                                <span class="project-skill">BI</span>
+
+
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+        
                 <!-- Project 2 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">SDAIA's T5 Zeham Bootcamp Projects</h5>
-                            <p class="card-text"><strong>Skills:</strong> Exploratory data analysis (EDA), data cleaning, preprocessing and visualization, machine learning, deep learning, time series forecasting, computer vision, natural language processing (NLP), transformers, large language models (LLMs).</p>
-                            <div class="card-links">
-                                <a href="https://github.com/ebtisamasiri/T5">Source Code 1</a>| 
-                                <a href="https://github.com/ebtisamasiri/T5-Data-Science-AI-Practice">Source Code 2</a> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Airbnb Price Prediction</h5>
-                            <p class="card-text">This project predicts Airbnb listing prices in Amsterdam using Python. It demonstrates my expertise in data cleaning, preprocessing, exploratory data analysis (EDA), feature engineering, and applying machine learning models to analyze and interpret the data.</p>
-                            <p class="card-text"><strong>Skills:</strong> Python, data cleaning & preprocessing, exploratory data analysis (EDA), feature engineering, machine learning, data visualization.</p>
-                            <div class="card-links">
+                <div class="col-md-6">
+                    <a href="https://www.kaggle.com/code/ebtsamjasiri/sentiment-analysis-of-yelp-restaurant-reviews" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/2.png" alt="Project 2" class="project-img">
+                            <h4>Sentiment Analysis of Yelp Restaurant Reviews 🍽️</h4>
+                            <p>Performed sentiment analysis on Yelp restaurant reviews to evaluate 
+                                customer opinions. Applied text preprocessing, sentiment scoring, 
+                                and word frequency analysis to identify trends in positive and negative 
+                                reviews, helping uncover key factors influencing customer satisfaction.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">Google Colab</span>
+                                <span class="project-skill">Python</span>
+                                <span class="project-skill">Sentiment Analysis</span>
                                 
-                                <a href="https://github.com/ebtisamasiri/Airbnb_Price_Predictions_Project">Source Code</a>
+                                <span class="project-skill">Text Preprocessing</span>
+                                <span class="project-skill">NLP</span>
+                                <span class="project-skill">Data Cleaning</span>
+
+                                <span class="project-skill">Visualization</span>
+                                <span class="project-skill">Word Frequency Analysis</span>
+
+
+
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+        
+                <!-- Project 3 -->
+                <div class="col-md-6">
+                    <a href="https://www.kaggle.com/code/ebtsamjasiri/retail-data-analysis" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/4.jpg" alt="Project 3" class="project-img">
+                            <h4>Retail Data Analysis 🛒</h4>
+                            <p>Analyzed 55,000 synthetic retail transactions to uncover sales trends, 
+                                top-selling products, and best-performing store locations. Provided 
+                                data-driven insights and recommendations to optimize sales, inventory, 
+                                and marketing strategies.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">Python</span>
+                                <span class="project-skill">Pandas</span>
+                                <span class="project-skill">Seaborn & Matplotlib</span>
+                                <span class="project-skill">Data Analysis</span>
+                                <span class="project-skill">Sales Trend Analysis</span>
+                                <span class="project-skill">BI</span>
+                                <span class="project-skill">Market Insights & Recommendations</span>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        
+                <!-- Project 4 -->
+                <div class="col-md-6">
+                    <a href="https://www.canva.com/design/DAGTEtPp5Wg/XRXSITLiwL3KTiYvj2Vt-Q/edit" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/5.png" alt="Project 4" class="project-img">
+                            <h4>Adaptive Speed Limit Control System 🚦</h4>
+                            <p>Developed a real-time traffic management system using YOLOv8 for 
+                                vehicle detection, speed estimation, and adaptive speed limit control. 
+                                The system optimizes traffic flow and identifies speed violations 
+                                based on traffic density.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">YOLOv8 (Object Detection)</span>
+                                <span class="project-skill">Computer Vision</span>
+                                <span class="project-skill">Python</span>
+                                <span class="project-skill">Real-Time Traffic Analysis</span>
+
+                                <span class="project-skill">ML</span>
+                                <span class="project-skill"> Speed Estimation</span>
+                                <span class="project-skill">Data Augmentation</span>
+                                <span class="project-skill">AI</span>
+
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        
+                <!-- Project 5 -->
+                <div class="col-md-6">
+                    <a href="https://ebtisamasiri.github.io/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/6.png" alt="Project 5" class="project-img">
+                            <h4>Personal Portfolio Website 🌐</h4>
+                            <p>Designed and developed a responsive portfolio website using GitHub 
+                                Pages to showcase projects, skills, and experience. Implemented 
+                                smooth UI/UX with Bootstrap, HTML, CSS, and JavaScript for an 
+                                interactive browsing experience.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">GitHub Pages</span>
+                                <span class="project-skill">HTML & CSS</span>
+                                <span class="project-skill">Bootstrap</span>
+                                <span class="project-skill">JavaScript</span>
+                                <span class="project-skill">Responsive Web Design</span>
+                                <span class="project-skill">UI/UX Design</span>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- 
+                
+                <div class="col-md-6">
+                    <a href="project6-link.html" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/6.jpg" alt="Project 6" class="project-img">
+                            <h4>Sentiment Analysis</h4>
+                            <p>Analyzed customer sentiment using NLP.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">NLP</span>
+                                <span class="project-skill">Machine Learning</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        
+                Project 7
+                <div class="col-md-6">
+                    <a href="project7-link.html" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/7.jpg" alt="Project 7" class="project-img">
+                            <h4>Excel Dashboard</h4>
+                            <p>Designed an interactive dashboard in Excel.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">Excel</span>
+                                <span class="project-skill">Power BI</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        
+                
+                <div class="col-md-6">
+                    <a href="project8-link.html" class="text-decoration-none">
+                        <div class="project-box">
+                            <img src="images/projects/8.jpg" alt="Project 8" class="project-img">
+                            <h4>Interactive Website</h4>
+                            <p>Developed a dynamic website using HTML/CSS.</p>
+                            <hr class="project-line">
+                            <div>
+                                <span class="project-skill">HTML</span>
+                                <span class="project-skill">CSS</span>
+                                <span class="project-skill">JavaScript</span>
+                            </div>
+                        </div>
+                    </a>
+                </div> 
+            -->
             </div>
+        </section>
+        
+        
+        
+    <!-- Contact Section -->
+    <section id="contact" class="contact-container fade-in">
+        <h2>Contact Me 📩</h2>
+        
+
+        <div class="contact-links">
+            <a href="mailto:ebtesammu@gmail.com" class="contact-btn">
+                <i class="fas fa-envelope"></i> Email Me
+            </a>
+            <a href="https://www.linkedin.com/in/ebtsamja/" target="_blank" class="contact-btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/ebtisamasiri" target="_blank" class="contact-btn">
+                <i class="fab fa-github"></i> GitHub
+            </a>
         </div>
+        <h3>Get in Touch Directly ✉️</h3>
+        <p class="contact-subtext">Let's make something together!</p>
+
+        <form action="https://formspree.io/f/mnnjgydr" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit" class="contact-btn">Send Message</button>
+        </form>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Areas of Expertise</h2>
-            <div class="row text-center">
-                <div class="col-md-3">
-                    <img src="images/skills/1.png" alt="Python" class="img-fluid mb-3">
-                    <h5>Python</h5>
-                    <p><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Seaborn.</p>
-                    <p><strong>Tools:</strong> Jupyter Notebooks, Google Colab, PyCharm, VSCode.</p>
-                </div>
-                <div class="col-md-3">
-                    <img src="images/skills/2.png" alt="Data Visualization" class="img-fluid mb-3">
-                    <h5>Data Visualization</h5>
-                    <p><strong>Techniques:</strong> Data storytelling, interactive dashboards, comparative analysis.</p>
-                    <p><strong>Tools:</strong> Tableau, Power BI, Matplotlib, Seaborn.</p>
+</div> 
+<!-- Footer -->
+<div class="footer fade-in">
+    <p>&copy; 2025. All rights reserved.</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                </div>
-                <div class="col-md-3">
-                    <img src="images/skills/3.png" alt="SQL" class="img-fluid mb-3">
-                    <h5>Data Analysis</h5>
-                    <p><strong>Techniques:</strong> Exploratory data analysis, correlation and regression analysis, time series analysis.</p>
-                    <p><strong>Techniques:</strong> Python, SQL, Excel.</p>
+<!-- (Everything else remains the same) -->
 
-                </div>
-                <div class="col-md-3">
-                    <img src="images/skills/4.png" alt="Data Storytelling" class="img-fluid mb-3">
-                    <h5>Data Science</h5>
-                    <p><strong>Techniques:</strong> Machine learning, deep learning, time series forecasting, natural language processing.</p>
-                    <p><strong>Techniques:</strong> Scikit-learn, TensorFlow, Keras, PyTorch, OpenCV, NLTK, SpaCy, Git.</p>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Contact Me Section -->
-<section id="contact" class="contact-section py-5" style="background-color: #1e3150;">
-    <div class="container text-center text-white">
-        <h2 class="mb-4">Contact Me</h2>
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-3 d-flex justify-content-center align-items-center">
-                <a href="mailto:ebtesammu@gmail.com" class="text-white">
-                    <img src="icons/email.png" alt="Email Icon" class="mr-2">
-                    <div></div>
-                    <div>ebtesammu@gmail.com</div>
-                </a>
-            </div>
-            <div class="col-md-3 d-flex justify-content-center align-items-center">
-                <a href="tel:+966559697007" class="text-white">
-                    <img src="icons/phone.png" alt="Phone Icon" class="mr-2">
-                    <div>+966559697007</div>
-                </a>
-            </div>
-            <div class="col-md-3 d-flex justify-content-center align-items-center">
-                <a href="https://www.linkedin.com/in/ebtsamja/" class="text-white">
-                    <img src="icons/linkedin.png" alt="LinkedIn" class="img-fluid mb-2">
-                    <div>LinkedIn</div>
-                </a>
-            </div>
-            <div class="col-md-3 d-flex justify-content-center align-items-center">
-                <a href="https://github.com/ebtisamasiri" class="text-white">
-                    <img src="icons/github.png" alt="GitHub" class="img-fluid mb-2">
-                    <div>GitHub</div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
